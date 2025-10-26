@@ -56,7 +56,7 @@ A modern, full-stack web application for managing tasks and to-do lists. Built w
 1. Clone the repository:
    ```bash
    git clone <repository-url>
-   cd MyDotNetNg
+   cd <repository-name>
    ```
 
 2. Install server dependencies:
