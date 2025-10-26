@@ -219,10 +219,10 @@ To reach target score:
 
 ## 🔗 Resources
 
-- [.NET Upgrade Guide](https://docs.microsoft.com/aspnet/core/migration/31-to-50)
+- [.NET Upgrade Guide](https://learn.microsoft.com/aspnet/core/migration/overview)
 - [Angular Update Guide](https://update.angular.io/)
 - [OWASP Security Guidelines](https://owasp.org/)
-- [.NET Testing Best Practices](https://docs.microsoft.com/dotnet/core/testing/)
+- [.NET Testing Best Practices](https://learn.microsoft.com/dotnet/core/testing/)
 
 ## Last Updated
 

@@ -20,7 +20,7 @@ Please be respectful and constructive in all interactions.
 ## Development Setup
 
 ### Prerequisites
-- .NET Core SDK 1.1+ (recommend upgrading to .NET 8.0)
+- .NET Core SDK 1.1+ (project currently uses 1.1, but .NET 8.0 recommended for new development)
 - Node.js v6.9.0+
 - Angular CLI 1.4.9
 
@@ -47,7 +47,7 @@ Please be respectful and constructive in all interactions.
 ## Coding Standards
 
 ### C# / .NET
-- Follow [C# Coding Conventions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions)
+- Follow [C# Coding Conventions](https://learn.microsoft.com/dotnet/csharp/fundamentals/coding-style/coding-conventions)
 - Use meaningful variable and method names
 - Add XML documentation comments for public APIs
 - Keep methods focused and small
