@@ -1,196 +1,153 @@
-# MyDotNetNg
+# Task Manager
 
-ASP.NET Core with Angular integration project demonstrating full-stack development with .NET backend and Angular frontend.
+A modern, full-stack web application for managing tasks and to-do lists. Built with React, Node.js, and MongoDB.
 
-## Repository Structure
+## Features
 
-This solution contains two projects showcasing ASP.NET Core backend with Angular frontends:
+- ✅ Create, read, update, and delete tasks
+- ✅ Mark tasks as complete/incomplete
+- ✅ Clean and modern UI design
+- ✅ Dark mode / Light mode toggle
+- ✅ Responsive design
+- ✅ Real-time updates
+- ✅ RESTful API
 
-### 1. MyDotNetNg
-A basic ASP.NET Core 1.1 Web API application integrated with Angular 4.
-- **Backend**: ASP.NET Core 1.1 Web API
-- **Frontend**: Angular 4 (CLI version 1.4.9)
-- **API Endpoint**: `/api/values` - Returns sample string array
-- **Port**: http://localhost:5000
+## Tech Stack
 
-### 2. TourOfHeroes
-Angular "Tour of Heroes" tutorial integrated with ASP.NET Core backend.
-- **Backend**: ASP.NET Core 1.1 Web API
-- **Frontend**: Angular 4 Tour of Heroes application
-- **API Endpoint**: `/api/values` - Returns sample data
+### Frontend
+- **React** - UI library
+- **Tailwind CSS** - Styling framework
+- **Axios** - HTTP client
+- **Vite** - Build tool
 
-## Prerequisites
-
-- [.NET Core SDK](https://dotnet.microsoft.com/download) (1.1 or higher)
-- [Node.js](https://nodejs.org/) (v6.9.0 or higher)
-- [Angular CLI](https://cli.angular.io/) (v1.4.9)
-
-```bash
-npm install -g @angular/cli@1.4.9
-```
-
-## Getting Started
-
-### Building the Solution
-
-1. **Restore .NET packages:**
-   ```bash
-   dotnet restore MyDotNetNg.sln
-   ```
-
-2. **Build the solution:**
-   ```bash
-   dotnet build MyDotNetNg.sln
-   ```
-
-### Running MyDotNetNg Project
-
-1. **Navigate to the project directory:**
-   ```bash
-   cd MyDotNetNg
-   ```
-
-2. **Install npm packages:**
-   ```bash
-   npm install
-   ```
-
-3. **Build Angular application:**
-   ```bash
-   npm run build
-   ```
-
-4. **Run the .NET application:**
-   ```bash
-   dotnet run
-   ```
-
-5. **Access the application:**
-   Open your browser and navigate to `http://localhost:5000`
-
-### Running TourOfHeroes Project
-
-1. **Navigate to the project directory:**
-   ```bash
-   cd TourOfHeroes
-   ```
-
-2. **Navigate to the Angular directory:**
-   ```bash
-   cd angular-tour-of-heroes
-   ```
-
-3. **Install npm packages:**
-   ```bash
-   npm install
-   ```
-
-4. **Build Angular application:**
-   ```bash
-   npm run build
-   ```
-
-5. **Return to project root and run:**
-   ```bash
-   cd ..
-   dotnet run
-   ```
-
-## Development
-
-### Angular Development Server
-
-For both projects, you can run the Angular dev server separately:
-
-```bash
-cd MyDotNetNg  # or TourOfHeroes/angular-tour-of-heroes
-npm start
-```
-
-This will start the Angular development server at `http://localhost:4200` with hot reload enabled.
-
-### Running Tests
-
-**Angular Unit Tests:**
-```bash
-npm test
-```
-
-**Angular E2E Tests:**
-```bash
-npm run e2e
-```
-
-**Linting:**
-```bash
-npm run lint
-```
+### Backend
+- **Node.js** - Runtime environment
+- **Express** - Web framework
+- **MongoDB** - Database
+- **Mongoose** - ODM
 
 ## Project Structure
 
 ```
-MyDotNetNg/
-├── MyDotNetNg/              # First Angular + ASP.NET Core project
-│   ├── src/                 # Angular source files
-│   │   ├── app/            # Angular components
-│   │   └── ...
-│   ├── Program.cs          # .NET application entry point
-│   ├── Startup.cs          # ASP.NET Core configuration
-│   ├── ValuesController.cs # Web API controller
-│   └── package.json        # npm dependencies
-├── TourOfHeroes/           # Tour of Heroes project
-│   ├── angular-tour-of-heroes/  # Angular application
-│   │   └── src/
-│   ├── Program.cs
-│   ├── Startup.cs
-│   └── ValuesController.cs
-└── MyDotNetNg.sln          # Visual Studio solution file
+├── src/              # Frontend React application
+│   ├── src/
+│   │   ├── components/   # React components
+│   │   ├── App.jsx       # Main app component
+│   │   └── main.jsx      # Entry point
+│   └── package.json
+├── server/           # Backend Node.js API
+│   ├── index.js      # Express server
+│   └── package.json
+└── docs/             # Documentation
+    ├── API.md        # API documentation
+    └── USER_GUIDE.md # User guide
 ```
 
-## Technology Stack
+## Getting Started
 
-- **Backend**: ASP.NET Core 1.1, C#
-- **Frontend**: Angular 4, TypeScript
-- **Build Tools**: Angular CLI, .NET CLI
-- **Testing**: Karma, Jasmine, Protractor
+### Prerequisites
 
-## Important Notes
+- Node.js (v14 or higher)
+- MongoDB (v4 or higher)
+- npm or yarn
 
-### ⚠️ Security Warnings
+### Installation
 
-**This project uses outdated versions with known security vulnerabilities:**
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd MyDotNetNg
+   ```
 
-1. **.NET Core 1.1** - End of support (June 27, 2019)
-2. **Microsoft.AspNetCore.Mvc 1.1.2** - Multiple high and moderate severity vulnerabilities
-3. **Microsoft.NETCore.App 1.1.2** - High severity vulnerabilities
-4. **Angular 4** - Multiple vulnerabilities in dependencies
+2. Install server dependencies:
+   ```bash
+   cd server
+   npm install
+   ```
 
-### Recommendations for Production Use:
+3. Install frontend dependencies:
+   ```bash
+   cd ../src
+   npm install
+   ```
 
-- **Upgrade to .NET 8.0** or latest LTS version
-- **Upgrade to Angular 17** or latest LTS version
-- Update all NuGet packages to their latest secure versions
-- Update all npm packages to their latest secure versions
-- Run `dotnet list package --vulnerable` to check for vulnerabilities
-- Run `npm audit` to check for npm vulnerabilities
+4. Set up environment variables:
+   ```bash
+   cd ../server
+   cp .env.example .env
+   ```
+   Edit `.env` to configure your MongoDB connection if needed.
+
+### Running the Application
+
+1. Start MongoDB (if not already running):
+   ```bash
+   # On macOS with Homebrew
+   brew services start mongodb-community
+
+   # On Linux with systemd
+   sudo systemctl start mongod
+
+   # On Windows
+   net start MongoDB
+   ```
+
+2. Start the backend server (from the `server` directory):
+   ```bash
+   npm start
+   ```
+   The server will run on `http://localhost:5000`
+
+3. In a new terminal, start the frontend (from the `src` directory):
+   ```bash
+   npm run dev
+   ```
+   The application will open at `http://localhost:3000`
+
+## Development
+
+### Frontend Development
+```bash
+cd src
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run preview  # Preview production build
+npm run lint     # Run ESLint
+```
+
+### Backend Development
+```bash
+cd server
+npm start        # Start server
+npm run dev      # Start with nodemon (auto-reload)
+```
+
+## Coding Standards
+
+This project follows these coding standards:
+
+- ✅ Use semicolons at the end of each statement
+- ✅ Use single quotes for strings
+- ✅ Use function-based components in React
+- ✅ Use arrow functions for callbacks
+- ✅ Modern and clean design principles
+
+## API Documentation
+
+See [API.md](./docs/API.md) for detailed API documentation.
+
+## User Guide
+
+See [USER_GUIDE.md](./docs/USER_GUIDE.md) for the complete user guide.
 
 ## Contributing
 
-This appears to be a learning/demonstration project. If you plan to use this as a base for production:
-
-1. Upgrade all dependencies to supported versions
-2. Address all security vulnerabilities
-3. Add proper error handling and logging
-4. Implement authentication and authorization
-5. Add comprehensive tests
-6. Follow security best practices
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-MIT
-
-## Additional Resources
-
-- [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/)
-- [Angular Documentation](https://angular.io/docs)
-- [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
+This project is licensed under the MIT License.
