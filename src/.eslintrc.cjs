@@ -17,6 +17,7 @@ module.exports = {
       { allowConstantExport: true }
     ],
     'quotes': ['error', 'single'],
-    'semi': ['error', 'always']
+    'semi': ['error', 'always'],
+    'react/prop-types': 'off'
   }
 };
