@@ -7,7 +7,7 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended'
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'postcss.config.js', 'tailwind.config.js', 'vite.config.js'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
@@ -18,6 +18,7 @@ module.exports = {
     ],
     'quotes': ['error', 'single'],
     'semi': ['error', 'always'],
+    // Disabled for simplicity - consider using TypeScript for production type safety
     'react/prop-types': 'off'
   }
 };
