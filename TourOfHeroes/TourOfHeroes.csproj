@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="angular-tour-of-heroes\src\app\hero-detail.component.ts" />
+    <None Remove="angular-tour-of-heroes\src\app\hero.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -14,6 +19,11 @@
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="angular-tour-of-heroes\src\app\hero-detail.component.ts" />
+    <TypeScriptCompile Include="angular-tour-of-heroes\src\app\hero.ts" />
   </ItemGroup>
 
 </Project>
