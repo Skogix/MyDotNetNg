@@ -161,7 +161,7 @@ app.Use(async (context, next) =>
 
 ## Resources
 
-- [.NET Security Guidelines](https://docs.microsoft.com/dotnet/standard/security/)
+- [.NET Security Guidelines](https://learn.microsoft.com/dotnet/standard/security/)
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [Angular Security Guide](https://angular.io/guide/security)
 - [.NET Core Security Updates](https://github.com/dotnet/announcements/issues?q=is%3Aissue+label%3ASecurity)
