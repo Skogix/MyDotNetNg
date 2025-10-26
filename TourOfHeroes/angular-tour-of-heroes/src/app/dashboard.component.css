@@ -1,72 +1,12 @@
-[class.selected] {
-  background-color: #CFD8DC !important;
-  background-color: rgb(0,120,215) !important;
-  color: white;
-}
-
-.heroes {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
-}
-
-.heroes li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
-}
-
-.heroes li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-
-.heroes li.selected:hover {
-  background-color: #BBD8DC !important;
-  color: white;
-}
-
-.heroes .text {
-  position: relative;
-  top: -3px;
-}
-
-.heroes .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
-}
-
-h3 {
-  text-align: center;
-  margin-bottom: 0;
-}
-
 [class*='col-'] {
   float: left;
   padding-right: 20px;
   padding-bottom: 20px;
 }
 
-[class*='col-']:last-of-type {
-  padding-right: 0;
-}
+  [class*='col-']:last-of-type {
+    padding-right: 0;
+  }
 
 a {
   text-decoration: none;
@@ -105,19 +45,19 @@ h4 {
   border-radius: 2px;
 }
 
-.module:hover {
-  background-color: #EEE;
-  cursor: pointer;
-  color: #607d8b;
-}
+  .module:hover {
+    background-color: #EEE;
+    cursor: pointer;
+    color: #607d8b;
+  }
 
 .grid-pad {
   padding: 10px 0;
 }
 
-.grid-pad > [class*='col-']:last-of-type {
-  padding-right: 20px;
-}
+  .grid-pad > [class*='col-']:last-of-type {
+    padding-right: 20px;
+  }
 
 @media (max-width: 600px) {
   .module {
@@ -130,6 +70,7 @@ h4 {
   .grid {
     margin: 0;
   }
+
   .module {
     min-width: 60px;
   }
