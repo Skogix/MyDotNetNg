@@ -1,11 +1,20 @@
 // Cloudflare Functions - Get single task
 
-// Helper function to validate task ID
+/**
+ * Validates that a task ID is a positive integer
+ * @param {string} taskId - The task ID to validate
+ * @returns {boolean} True if the task ID is a positive integer, false otherwise
+ */
 function validateTaskId(taskId) {
-  return /^\d+$/.test(taskId) && parseInt(taskId, 10) > 0;
+  return /^[1-9]\d*$/.test(taskId);
 }
 
-// Helper function to create error response
+/**
+ * Creates a standardized error response
+ * @param {string} message - The error message
+ * @param {number} status - The HTTP status code (default: 400)
+ * @returns {Response} A Response object with the error
+ */
 function createErrorResponse(message, status = 400) {
   return new Response(JSON.stringify({ message }), {
     status,
