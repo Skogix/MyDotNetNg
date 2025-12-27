@@ -13,8 +13,3 @@ database_id = "407db161-026a-41ed-b081-dfcbde7dbbe4"
 # Environment variables
 [vars]
 ENVIRONMENT = "production"
-
-# Development configuration
-[env.development]
-[env.development.vars]
-ENVIRONMENT = "development"
