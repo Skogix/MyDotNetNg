@@ -30,8 +30,14 @@ export async function onRequestGet(context) {
   const taskId = params.id;
 
   // Validate task ID is a positive integer
-  if (!validateTaskId(taskId)) {
-    return createErrorResponse('Invalid task ID');
+  if (!/^\d+$/.test(taskId) || parseInt(taskId, 10) <= 0) {
+    return new Response(JSON.stringify({ message: 'Invalid task ID' }), {
+      status: 400,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
   }
 
   try {
@@ -60,8 +66,14 @@ export async function onRequestPut(context) {
   const taskId = params.id;
 
   // Validate task ID is a positive integer
-  if (!validateTaskId(taskId)) {
-    return createErrorResponse('Invalid task ID');
+  if (!/^\d+$/.test(taskId) || parseInt(taskId, 10) <= 0) {
+    return new Response(JSON.stringify({ message: 'Invalid task ID' }), {
+      status: 400,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
   }
 
   try {
@@ -106,8 +118,14 @@ export async function onRequestDelete(context) {
   const taskId = params.id;
 
   // Validate task ID is a positive integer
-  if (!validateTaskId(taskId)) {
-    return createErrorResponse('Invalid task ID');
+  if (!/^\d+$/.test(taskId) || parseInt(taskId, 10) <= 0) {
+    return new Response(JSON.stringify({ message: 'Invalid task ID' }), {
+      status: 400,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
   }
 
   try {
