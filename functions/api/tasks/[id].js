@@ -1,17 +1,28 @@
 // Cloudflare Functions - Get single task
+
+// Helper function to validate task ID
+function validateTaskId(taskId) {
+  return /^\d+$/.test(taskId) && parseInt(taskId, 10) > 0;
+}
+
+// Helper function to create error response
+function createErrorResponse(message, status = 400) {
+  return new Response(JSON.stringify({ message }), {
+    status,
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
+}
+
 export async function onRequestGet(context) {
   const { params, env } = context;
   const taskId = params.id;
 
   // Validate task ID is a positive integer
-  if (!/^\d+$/.test(taskId) || parseInt(taskId, 10) <= 0) {
-    return new Response(JSON.stringify({ message: 'Invalid task ID' }), {
-      status: 400,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+  if (!validateTaskId(taskId)) {
+    return createErrorResponse('Invalid task ID');
   }
 
   try {
@@ -20,13 +31,7 @@ export async function onRequestGet(context) {
     ).bind(taskId).all();
 
     if (results.length === 0) {
-      return new Response(JSON.stringify({ message: 'Task not found' }), {
-        status: 404,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
+      return createErrorResponse('Task not found', 404);
     }
 
     return new Response(JSON.stringify(results[0]), {
@@ -36,13 +41,7 @@ export async function onRequestGet(context) {
       },
     });
   } catch (error) {
-    return new Response(JSON.stringify({ message: error.message }), {
-      status: 500,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+    return createErrorResponse(error.message, 500);
   }
 }
 
@@ -52,14 +51,8 @@ export async function onRequestPut(context) {
   const taskId = params.id;
 
   // Validate task ID is a positive integer
-  if (!/^\d+$/.test(taskId) || parseInt(taskId, 10) <= 0) {
-    return new Response(JSON.stringify({ message: 'Invalid task ID' }), {
-      status: 400,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+  if (!validateTaskId(taskId)) {
+    return createErrorResponse('Invalid task ID');
   }
 
   try {
@@ -71,13 +64,7 @@ export async function onRequestPut(context) {
     ).bind(taskId).all();
 
     if (results.length === 0) {
-      return new Response(JSON.stringify({ message: 'Task not found' }), {
-        status: 404,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
+      return createErrorResponse('Task not found', 404);
     }
 
     const task = results[0];
@@ -100,13 +87,7 @@ export async function onRequestPut(context) {
       },
     });
   } catch (error) {
-    return new Response(JSON.stringify({ message: error.message }), {
-      status: 400,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+    return createErrorResponse(error.message, 400);
   }
 }
 
@@ -116,14 +97,8 @@ export async function onRequestDelete(context) {
   const taskId = params.id;
 
   // Validate task ID is a positive integer
-  if (!/^\d+$/.test(taskId) || parseInt(taskId, 10) <= 0) {
-    return new Response(JSON.stringify({ message: 'Invalid task ID' }), {
-      status: 400,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+  if (!validateTaskId(taskId)) {
+    return createErrorResponse('Invalid task ID');
   }
 
   try {
@@ -133,13 +108,7 @@ export async function onRequestDelete(context) {
     ).bind(taskId).all();
 
     if (results.length === 0) {
-      return new Response(JSON.stringify({ message: 'Task not found' }), {
-        status: 404,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
+      return createErrorResponse('Task not found', 404);
     }
 
     await env.DB.prepare(
@@ -153,13 +122,7 @@ export async function onRequestDelete(context) {
       },
     });
   } catch (error) {
-    return new Response(JSON.stringify({ message: error.message }), {
-      status: 500,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+    return createErrorResponse(error.message, 500);
   }
 }
 
