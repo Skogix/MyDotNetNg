@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 
-@
-  Component({
+@Component({
     selector: 'my-app',
+    template: `
     template: `
       <h1>{{title}}</h1>
       <nav>
