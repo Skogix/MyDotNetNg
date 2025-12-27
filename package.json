@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run dev --prefix src",
-    "build": "npm run build --prefix src",
+    "build": "cd src && npm install && npm run build",
     "preview": "npm run preview --prefix src",
     "deploy": "npm run deploy --prefix src",
     "db:init": "wrangler d1 execute task-manager-db --file=./migrations/0001_create_tasks_table.sql",
