@@ -14,7 +14,7 @@ database_id = "407db161-026a-41ed-b081-dfcbde7dbbe4"
 [vars]
 ENVIRONMENT = "production"
 
-# Preview environment configuration for Cloudflare Pages
-[env.preview]
-[env.preview.vars]
-ENVIRONMENT = "preview"
+# Development configuration
+[env.development]
+[env.development.vars]
+ENVIRONMENT = "development"
