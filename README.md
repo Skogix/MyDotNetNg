@@ -1,6 +1,19 @@
 # Task Manager
 
-A modern, full-stack web application for managing tasks and to-do lists. Built with React, Node.js, and MongoDB.
+A modern, full-stack web application for managing tasks and to-do lists. Now with **Cloudflare Pages** deployment for global, serverless hosting!
+
+## 🚀 Deploy to Cloudflare Pages (Recommended)
+
+This app is ready for instant deployment on Cloudflare's edge network:
+
+- **Zero Config**: Push to deploy with GitHub Actions
+- **Serverless**: API runs on Cloudflare Functions
+- **Global CDN**: Fast loading worldwide
+- **Free Tier**: No cost for most apps
+
+👉 **[Quick Start Guide](./QUICKSTART.md)** | **[Full Deployment Guide](./CLOUDFLARE_DEPLOYMENT.md)**
+
+---
 
 ## Features
 
@@ -15,12 +28,17 @@ A modern, full-stack web application for managing tasks and to-do lists. Built w
 ## Tech Stack
 
 ### Frontend
-- **React** - UI library
-- **Tailwind CSS** - Styling framework
+- **React 18** - UI library
+- **Vite 4** - Lightning-fast build tool
+- **Tailwind CSS 3** - Modern styling framework
 - **Axios** - HTTP client
-- **Vite** - Build tool
 
-### Backend
+### Backend (Cloudflare Deployment)
+- **Cloudflare Functions** - Serverless API endpoints
+- **Cloudflare D1** - SQLite database at the edge
+- **Cloudflare Pages** - Static site hosting
+
+### Backend (Legacy/Local Development)
 - **Node.js** - Runtime environment
 - **Express** - Web framework
 - **MongoDB** - Database
@@ -29,18 +47,31 @@ A modern, full-stack web application for managing tasks and to-do lists. Built w
 ## Project Structure
 
 ```
-├── src/              # Frontend React application
+├── src/                    # Frontend React application
 │   ├── src/
-│   │   ├── components/   # React components
-│   │   ├── App.jsx       # Main app component
-│   │   └── main.jsx      # Entry point
+│   │   ├── components/     # React components
+│   │   ├── App.jsx         # Main app component
+│   │   └── main.jsx        # Entry point
+│   ├── public/
+│   │   └── _headers        # Cloudflare Pages headers
 │   └── package.json
-├── server/           # Backend Node.js API
-│   ├── index.js      # Express server
+├── functions/              # Cloudflare serverless functions
+│   └── api/
+│       ├── tasks/
+│       │   ├── index.js    # GET/POST /api/tasks
+│       │   └── [id].js     # GET/PUT/DELETE /api/tasks/:id
+│       └── health.js       # Health check endpoint
+├── migrations/             # Database schema
+│   └── 0001_create_tasks_table.sql
+├── server/                 # Legacy Node.js API (for local dev)
+│   ├── index.js            # Express server
 │   └── package.json
-└── docs/             # Documentation
-    ├── API.md        # API documentation
-    └── USER_GUIDE.md # User guide
+├── .github/workflows/      # CI/CD automation
+│   └── deploy.yml          # Auto-deploy to Cloudflare
+├── wrangler.toml           # Cloudflare configuration
+└── docs/                   # Documentation
+    ├── API.md              # API documentation
+    └── USER_GUIDE.md       # User guide
 ```
 
 ## Getting Started

@@ -1,0 +1,20 @@
+name = "mydotnetng-app"
+compatibility_date = "2024-01-01"
+
+# Cloudflare Pages configuration
+pages_build_output_dir = "src/dist"
+
+# D1 Database binding for task storage
+[[d1_databases]]
+binding = "DB"
+database_name = "task-manager-db"
+database_id = "preview-database-id" # Will be created during deployment
+
+# Environment variables
+[vars]
+ENVIRONMENT = "production"
+
+# Development configuration
+[env.development]
+[env.development.vars]
+ENVIRONMENT = "development"
