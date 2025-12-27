@@ -7,8 +7,8 @@ pages_build_output_dir = "src/dist"
 # D1 Database binding for task storage
 [[d1_databases]]
 binding = "DB"
-database_name = "task-manager-db"
-database_id = "preview-database-id" # Will be created during deployment
+database_name = "skogai"
+database_id = "407db161-026a-41ed-b081-dfcbde7dbbe4"
 
 # Environment variables
 [vars]
