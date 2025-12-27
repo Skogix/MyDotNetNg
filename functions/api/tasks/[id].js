@@ -3,6 +3,17 @@ export async function onRequestGet(context) {
   const { params, env } = context;
   const taskId = params.id;
 
+  // Validate task ID is a positive integer
+  if (!/^\d+$/.test(taskId) || parseInt(taskId, 10) <= 0) {
+    return new Response(JSON.stringify({ message: 'Invalid task ID' }), {
+      status: 400,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  }
+
   try {
     const { results } = await env.DB.prepare(
       'SELECT * FROM tasks WHERE id = ?'
@@ -39,6 +50,17 @@ export async function onRequestGet(context) {
 export async function onRequestPut(context) {
   const { request, params, env } = context;
   const taskId = params.id;
+
+  // Validate task ID is a positive integer
+  if (!/^\d+$/.test(taskId) || parseInt(taskId, 10) <= 0) {
+    return new Response(JSON.stringify({ message: 'Invalid task ID' }), {
+      status: 400,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  }
 
   try {
     const updates = await request.json();
@@ -92,6 +114,17 @@ export async function onRequestPut(context) {
 export async function onRequestDelete(context) {
   const { params, env } = context;
   const taskId = params.id;
+
+  // Validate task ID is a positive integer
+  if (!/^\d+$/.test(taskId) || parseInt(taskId, 10) <= 0) {
+    return new Response(JSON.stringify({ message: 'Invalid task ID' }), {
+      status: 400,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  }
 
   try {
     // Check if task exists

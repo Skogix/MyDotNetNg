@@ -43,7 +43,7 @@ export async function onRequestPost(context) {
 
     const result = await env.DB.prepare(
       'INSERT INTO tasks (title, description, completed, created_at) VALUES (?, ?, ?, ?)'
-    ).bind(title, description, false, new Date().toISOString()).run();
+    ).bind(title, description, 0, new Date().toISOString()).run();
 
     const { results } = await env.DB.prepare(
       'SELECT * FROM tasks WHERE id = ?'
