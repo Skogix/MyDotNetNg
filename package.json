@@ -1,0 +1,25 @@
+{
+  "name": "mydotnetng",
+  "version": "2.0.0",
+  "description": "Modern full-stack application with React, Vite, and Cloudflare",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix src",
+    "build": "cd src && npm install && npm run build",
+    "preview": "npm run preview --prefix src",
+    "deploy": "npm run deploy --prefix src",
+    "db:init": "wrangler d1 execute task-manager-db --file=./migrations/0001_create_tasks_table.sql",
+    "db:query": "wrangler d1 execute task-manager-db",
+    "pages:dev": "wrangler pages dev src/dist",
+    "lint": "npm run lint --prefix src"
+  },
+  "keywords": [
+    "react",
+    "vite",
+    "cloudflare",
+    "serverless",
+    "d1"
+  ],
+  "author": "",
+  "license": "MIT"
+}
