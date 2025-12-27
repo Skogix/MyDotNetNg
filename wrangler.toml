@@ -14,7 +14,7 @@ database_id = "preview-database-id" # Will be created during deployment
 [vars]
 ENVIRONMENT = "production"
 
-# Development configuration
-[env.development]
-[env.development.vars]
-ENVIRONMENT = "development"
+# Preview environment configuration
+[env.preview]
+[env.preview.vars]
+ENVIRONMENT = "preview"
