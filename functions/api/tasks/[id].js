@@ -1,20 +1,11 @@
 // Cloudflare Functions - Get single task
 
-/**
- * Validates that a task ID is a positive integer
- * @param {string} taskId - The task ID to validate
- * @returns {boolean} True if the task ID is a positive integer, false otherwise
- */
+// Helper function to validate task ID
 function validateTaskId(taskId) {
-  return /^[1-9]\d*$/.test(taskId);
+  return /^\d+$/.test(taskId) && parseInt(taskId, 10) > 0;
 }
 
-/**
- * Creates a standardized error response
- * @param {string} message - The error message
- * @param {number} status - The HTTP status code (default: 400)
- * @returns {Response} A Response object with the error
- */
+// Helper function to create error response
 function createErrorResponse(message, status = 400) {
   return new Response(JSON.stringify({ message }), {
     status,
@@ -30,14 +21,8 @@ export async function onRequestGet(context) {
   const taskId = params.id;
 
   // Validate task ID is a positive integer
-  if (!/^\d+$/.test(taskId) || parseInt(taskId, 10) <= 0) {
-    return new Response(JSON.stringify({ message: 'Invalid task ID' }), {
-      status: 400,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+  if (!validateTaskId(taskId)) {
+    return createErrorResponse('Invalid task ID');
   }
 
   try {
@@ -66,14 +51,8 @@ export async function onRequestPut(context) {
   const taskId = params.id;
 
   // Validate task ID is a positive integer
-  if (!/^\d+$/.test(taskId) || parseInt(taskId, 10) <= 0) {
-    return new Response(JSON.stringify({ message: 'Invalid task ID' }), {
-      status: 400,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+  if (!validateTaskId(taskId)) {
+    return createErrorResponse('Invalid task ID');
   }
 
   try {
@@ -118,14 +97,8 @@ export async function onRequestDelete(context) {
   const taskId = params.id;
 
   // Validate task ID is a positive integer
-  if (!/^\d+$/.test(taskId) || parseInt(taskId, 10) <= 0) {
-    return new Response(JSON.stringify({ message: 'Invalid task ID' }), {
-      status: 400,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+  if (!validateTaskId(taskId)) {
+    return createErrorResponse('Invalid task ID');
   }
 
   try {
