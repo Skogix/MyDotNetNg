@@ -13,3 +13,8 @@ database_id = "preview-database-id" # Will be created during deployment
 # Environment variables
 [vars]
 ENVIRONMENT = "production"
+
+# Preview environment configuration for Cloudflare Pages
+[env.preview]
+[env.preview.vars]
+ENVIRONMENT = "preview"
